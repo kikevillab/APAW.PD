@@ -4,15 +4,12 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertSame;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import es.upm.miw.pd.singleton.factory.ReferencesFactory;
 
 public class ReferencesFactoryTest {
 	
-    private ReferencesFactory factory;
-
     @Test
     public void testReferencesFactoryIsSingleton() {
         assertSame(ReferencesFactory.getFactory(), ReferencesFactory.getFactory());
