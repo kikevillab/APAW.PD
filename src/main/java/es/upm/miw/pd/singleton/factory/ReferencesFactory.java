@@ -1,4 +1,4 @@
-package pd.singleton.factory;
+package es.upm.miw.pd.singleton.factory;
 
 import java.util.HashMap;
 import java.util.Map;
