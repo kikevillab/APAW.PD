@@ -8,6 +8,6 @@ public class Multiplicacion extends Operation{
 	
 	@Override
 	public int operar(){
-		return e1.operar() * e2.operar();
+		return getExpresion1().operar() * getExpresion2().operar();
 	}
 }

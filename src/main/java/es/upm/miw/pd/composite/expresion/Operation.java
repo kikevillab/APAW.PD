@@ -2,9 +2,9 @@ package es.upm.miw.pd.composite.expresion;
 
 public class Operation extends Expresion{
 
-	protected Expresion e1, e2;
+	private Expresion e1, e2;
 	
-	protected String operator;
+	private String operator;
 	
 	public Operation(Expresion e1, Expresion e2, String operator){
 		this.e1 = e1;
@@ -20,6 +20,14 @@ public class Operation extends Expresion{
 	@Override
 	public String toString() {
 		return "("+e1.toString()+operator+e2.toString()+")";
+	}
+	
+	protected Expresion getExpresion1(){
+		return e1;
+	}
+	
+	protected Expresion getExpresion2(){
+		return e2;
 	}
 	
 
