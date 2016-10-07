@@ -1,6 +1,8 @@
 package pd.singleton.factory;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertSame;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -11,8 +13,18 @@ public class ReferencesFactoryTest {
 
     @Before
     public void before() {
-        factory = new ReferencesFactory();
+        factory = ReferencesFactory.getFactory();
         factory.getReference("cero");
+    }
+    
+    @Test
+    public void testReferencesFactoryIsSingleton() {
+        assertSame(ReferencesFactory.getFactory(), ReferencesFactory.getFactory());
+    }
+
+    @Test
+    public void testReferencesFactorySingletonNotNull() {
+        assertNotNull(ReferencesFactory.getFactory());
     }
 
     @Test
@@ -28,7 +40,7 @@ public class ReferencesFactoryTest {
     @Test
     public void testRemoveReference() {
         factory.removeReference("cero");
-        assertEquals(1, factory.getReference("cero"));
+        assertEquals(2, factory.getReference("cero"));
     }
 
 }

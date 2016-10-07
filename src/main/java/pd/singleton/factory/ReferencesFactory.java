@@ -4,11 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ReferencesFactory {
+	public static ReferencesFactory referencesFactory = null;
+	
     private Map<String, Integer> references;
 
     private int reference;
 
-    public ReferencesFactory() {
+    private ReferencesFactory() {
         this.references = new HashMap<>();
         this.reference = 0;
     }
@@ -20,11 +22,20 @@ public class ReferencesFactory {
             result = this.reference;
             reference++;
         }
+        
         return result;
     }
 
     public void removeReference(String key) {
         this.references.remove(key);
+    }
+    
+    public static ReferencesFactory getFactory(){
+    	if(referencesFactory == null){
+    		referencesFactory = new ReferencesFactory();
+    	}
+    	
+    	return referencesFactory;
     }
 
 }
