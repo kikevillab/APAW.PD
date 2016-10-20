@@ -10,15 +10,18 @@ public class ComandoDeshacer extends Operation implements Comando{
 	
 	public ComandoDeshacer(CalculadoraMementable calc){
 		super(calc, "deshacer");	
+		calcM = calc;
 	}
 
 	@Override
 	public void execute() {
 		
-		CalculadoraMementable calc = (CalculadoraMementable) getCalculator();	
-		String key = (String) IO.getIO().select(calc.getMementosNames());
+		calcM.setTotal(getCalculator().getTotal());	
+		String key = (String) IO.getIO().select(calcM.getMementosNames());
 		
-		calc.applyMemento(calc.getMemento(key));
+		calcM.applyMemento(calcM.getMemento(key));
+		getCalculator().reset();
+		getCalculator().add(calcM.getTotal());
 		
 	}
 

@@ -30,5 +30,9 @@ public class CalculadoraMementable extends Calculator{
 		setTotal(memento.getTotal());
 	}
 	
+	@Override
+	public void setTotal(int value){
+		super.setTotal(value);
+	}
 	
 }
