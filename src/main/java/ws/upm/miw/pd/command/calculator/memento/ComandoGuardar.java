@@ -7,17 +7,20 @@ import es.upm.miw.pd.command.calculator.Operation;
 
 public class ComandoGuardar extends Operation implements Comando{
 	
+	private CalculadoraMementable calcM;
+	
 	public ComandoGuardar(CalculadoraMementable calc){
 		super(calc, "save");
+		calcM = calc;
+		
 	}
 
 	@Override
 	public void execute() {
 		String name = IO.getIO().readString("Introduzca un identificador para el punto de restauración");
-		CalculadoraMementable calc = (CalculadoraMementable) getCalculator();
-		
-		MementoCalculadora memento = new MementoCalculadora(name, calc.getTotal());
-		calc.addMemento(memento);
+				
+		MementoCalculadora memento = new MementoCalculadora(name, getCalculator().getTotal());
+		calcM.addMemento(memento);
 		
 		
 	}
